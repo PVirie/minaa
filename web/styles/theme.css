@@ -1,0 +1,159 @@
+/* -- Contents -- */
+@import url("https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+body {
+    text-align: left;
+    font-family: "DM Mono", monospace;
+    line-height: 1.5em;
+    font-size: 1.1rem;
+
+    --accent: #6ec6ca;
+    --accent-background: #ccade8;
+}
+
+.primary {
+    color: #8474a1;
+    background-color: #f1eff2;
+}
+
+.secondary {
+    color: #8474a1;
+    background-color: #08979d;
+}
+
+.tertiary {
+    color: #ccade8;
+    background-color: #055b5c;
+}
+
+.neutral {
+    color: #ccade8;
+    background-color: #8474a1;
+}
+
+.relief {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #333f;
+    border-radius: 5px;
+}
+
+h1 {
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
+    line-height: 1.5em;
+}
+
+h2 {
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+/* -- BEGIN: Input form and button --*/
+
+/* begin accent color */
+:root {
+    accent-color: var(--accent);
+}
+:focus-visible {
+    outline-color: var(--accent);
+}
+::selection {
+    background-color: var(--accent);
+    color: #fff;
+}
+/* end accent color */
+
+.button,
+input,
+select,
+.combo {
+    background-color: inherit;
+    height: 2rem;
+    border: none;
+    border-bottom: solid 1px #333f;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: "DM Mono", monospace;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"] {
+    font-size: 2rem;
+    font-family: "Tangerine", cursive;
+}
+
+.button,
+input,
+select {
+    padding: 5px 10px;
+}
+
+select,
+.combo,
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"] {
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.button,
+input[type="button"] {
+    cursor: pointer;
+    box-shadow: 1px 1px 2px #111f;
+}
+
+.button.toggled,
+.button:active,
+input[type="button"]:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+.button.toggled {
+    color: var(--accent);
+    background-color: var(--accent-background);
+}
+
+/* -- END: Input form and button --*/
+
+/* -- BEGIN: BG images --*/
+
+.bg-0 {
+    background-image: url("/resources/aurora_0.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* -- END: BG images --*/

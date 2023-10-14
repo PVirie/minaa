@@ -1,0 +1,67 @@
+.primary-enter {
+    animation: bubble_up ease 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+/* enter animations */
+
+@keyframes bubble_up {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.secondary-enter {
+    animation: bubble_right ease 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes bubble_right {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.tertiary-enter {
+    animation: scale_up ease 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    transform-origin: bottom center;
+}
+
+@keyframes scale_up {
+    0% {
+        opacity: 0;
+        transform: scale(1, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+
+.quaternary-enter {
+    animation: fade_in ease 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade_in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
