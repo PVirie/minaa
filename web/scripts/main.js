@@ -3,6 +3,7 @@
     let ps = 1.0;
     let ox, oy;
 
+    let stage = null;
     const image_working_size = 960;
 
     const fitStageIntoParentContainer = function () {
@@ -26,6 +27,8 @@
         const mx = ox + x * image_working_size;
         const my = oy + y * image_working_size;
         work_group.transform({ scale: ps, origin: { x: 0, y: 0 }, position: { x: mx, y: my } });
+
+        scroll_update(my);
     };
 
     const zoom = function (dscale) {
@@ -48,20 +51,28 @@
             position: position,
         });
         ps = ps * dscale;
+
+        scroll_update(position.y);
+    };
+
+    const scroll_update = function (my) {
+        // set background color, at ground my = 0 #102a85, at zenith my = 2000 #000005, else clip
+        my = util.clip(my / 2000, 0, 1.0);
+
+        stage.style.setProperty("background-color", `rgb(${(1 - my) * 16}, ${(1 - my) * 45}, ${my * 5 + (1 - my) * 133})`);
     };
 
     // adapt the stage on any window resize
     window.addEventListener("resize", fitStageIntoParentContainer);
 
     window.addEventListener("load", async function () {
-        const stage = SVG().addTo("#stage-parent").size("100%", "100%");
-        work_group = stage.group();
+        stage = document.querySelector("#stage-parent");
+        work_group = SVG().addTo("#stage-parent").size("100%", "100%").group();
         fitStageIntoParentContainer();
 
         // added rectangle
-        const rect = work_group.rect(480, 480).fill("#f00");
-        const aurora = new Aurora(work_group);
+        const aurora = new Aurora(work_group, 0, -1000, 960, 480);
 
-        await input.initialize(document.querySelector("#stage-parent"), pan, zoom, get_translation, transform);
+        await input.initialize(stage, pan, zoom, get_translation, transform);
     });
 })();
