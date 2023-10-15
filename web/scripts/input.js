@@ -24,9 +24,16 @@ input = (function () {
     };
 
     let gyro_present = false;
-    let screen = null;
+    let on_pan_ = null;
+    let on_zoom_ = null;
+    let get_translation_ = null;
+    let on_transform_ = null;
 
     const is_touch_device = "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+
+    const check_is_touch_device = function () {
+        return is_touch_device;
+    };
 
     let filter_x = null;
     let filter_y = null;
@@ -106,8 +113,83 @@ input = (function () {
         return false;
     };
 
-    const initialize = async function (on_pan) {
+    let pin_x, pin_y, tpx, tpy, pin_s;
+
+    const set_draggable = function (element) {
+        if (check_is_touch_device()) {
+            element.addEventListener("touchstart", function (e) {
+                if (e.touches.length > 1) {
+                    const c = util.center([e.touches[0].clientX, e.touches[0].clientY], [e.touches[1].clientX, e.touches[1].clientY]);
+                    pin_x = c[0];
+                    pin_y = c[1];
+                    pin_s = util.dist([e.touches[0].clientX, e.touches[0].clientY], [e.touches[1].clientX, e.touches[1].clientY]);
+                } else {
+                    pin_x = e.touches[0].clientX;
+                    pin_y = e.touches[0].clientY;
+                    pin_s = null;
+                }
+
+                [tpx, tpy] = get_translation_();
+                // e.preventDefault();
+            });
+            element.addEventListener("touchmove", function (e) {
+                if (pin_x == null) return;
+
+                if (e.touches.length > 1) {
+                    const c = util.center([e.touches[0].clientX, e.touches[0].clientY], [e.touches[1].clientX, e.touches[1].clientY]);
+                    const dscale = util.dist([e.touches[0].clientX, e.touches[0].clientY], [e.touches[1].clientX, e.touches[1].clientY]) / pin_s;
+
+                    on_transform_(
+                        dscale,
+                        { x: 0, y: 0 },
+                        {
+                            x: c[0] - pin_x + tpx + (pin_x - tpx) * (1 - dscale),
+                            y: c[1] - pin_y + tpy + (pin_y - tpy) * (1 - dscale),
+                        }
+                    );
+                } else {
+                    on_transform_(1.0, { x: 0, y: 0 }, { x: e.touches[0].clientX - pin_x + tpx, y: e.touches[0].clientY - pin_y + tpy });
+                }
+
+                e.preventDefault();
+            });
+            element.addEventListener("touchend", function (e) {
+                pin_x = null;
+                // e.preventDefault();
+            });
+        }
+        {
+            element.addEventListener("mousedown", function (e) {
+                pin_x = e.clientX;
+                pin_y = e.clientY;
+                [tpx, tpy] = get_translation_();
+                e.preventDefault();
+            });
+            element.addEventListener("mousemove", function (e) {
+                if (pin_x == null) return;
+                on_transform_(1.0, { x: 0, y: 0 }, { x: e.clientX - pin_x + tpx, y: e.clientY - pin_y + tpy });
+                e.preventDefault();
+            });
+            element.addEventListener("mouseup", function (e) {
+                pin_x = null;
+                e.preventDefault();
+            });
+            element.addEventListener("wheel", function (e) {
+                if (e.deltaY > 0) {
+                    on_zoom_(0.95);
+                } else if (e.deltaY < 0) {
+                    on_zoom_(1.05);
+                }
+                e.preventDefault();
+            });
+        }
+    };
+
+    const initialize = async function (element, on_pan, on_zoom, get_translation, on_transform) {
         on_pan_ = on_pan;
+        on_zoom_ = on_zoom;
+        get_translation_ = get_translation;
+        on_transform_ = on_transform;
         const ul = document.querySelector("#input-list");
         ul.classList.add("show");
 
@@ -116,8 +198,8 @@ input = (function () {
         //     li.appendChild(util.build_svg_dom(svgs.pointer));
         //     li.addEventListener('click', function(e) {
         //         e.stopPropagation();
-        //         screen.set_draggable();
-        //         screen.set_pointer();
+        //         set_draggable(element);
+        //         set_pointer(element);
         //         ul.classList.remove("show");
         //         ul.classList.add("hide");
         //     });
@@ -128,9 +210,8 @@ input = (function () {
             li.appendChild(util.build_svg_dom(svgs.drag));
             li.addEventListener("click", function (e) {
                 e.stopPropagation();
-                screen.set_draggable();
-                ul.classList.remove("show");
-                ul.classList.add("hide");
+                set_draggable(element);
+                ul.style.display = "none";
             });
             ul.appendChild(li);
         }
@@ -140,8 +221,7 @@ input = (function () {
             li.addEventListener("click", async function (e) {
                 e.stopPropagation();
                 await request_motion();
-                ul.classList.remove("show");
-                ul.classList.add("hide");
+                ul.style.display = "none";
             });
             ul.appendChild(li);
         }
@@ -149,9 +229,7 @@ input = (function () {
 
     return {
         initialize: initialize,
-        check_is_touch_device: function () {
-            return is_touch_device;
-        },
+        check_is_touch_device: check_is_touch_device,
         is_running: function () {
             return gyro_present;
         },
