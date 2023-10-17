@@ -1,5 +1,3 @@
-class Light_column {}
-
 class Aurora {
     constructor(parent, x, y, width, height) {
         this._id = Date.now();

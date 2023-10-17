@@ -70,8 +70,8 @@
         work_group = SVG().addTo("#stage-parent").size("100%", "100%").group();
         fitStageIntoParentContainer();
 
-        // added rectangle
-        const aurora = new Aurora(work_group, 0, -1000, 960, 480);
+        const aurora = new Aurora(work_group, 0, -2000, 960, 480);
+        const contract = new Contract(work_group, 0, -1000, 960, 480);
 
         await input.initialize(stage, pan, zoom, get_translation, transform);
     });
