@@ -1,0 +1,11 @@
+.equation-container {
+    overflow: visible;
+}
+
+.math {
+    font-size: 2rem;
+    width: 50%;
+    margin: 1.5rem auto;
+    text-align: center;
+    color: white;
+}
