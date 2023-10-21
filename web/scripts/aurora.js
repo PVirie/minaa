@@ -1,10 +1,10 @@
 class Aurora {
-    constructor(parent, x, y, width, height) {
+    constructor(parent) {
         this._id = Date.now();
         this._parent = parent;
 
-        this.group = parent.group();
-        this.container = this.group.foreignObject(width, height).move(x, y).addClass("aurora-container");
+        const group = document.createElement("div");
+        group.classList.add("aurora-container");
 
         for (let i = 0; i < 100; i++) {
             const aurora = document.createElement("div");
@@ -39,7 +39,9 @@ class Aurora {
             };
             at();
 
-            this.container.add(SVG(aurora));
+            group.appendChild(aurora);
         }
+
+        parent.appendChild(group);
     }
 }

@@ -3,21 +3,20 @@ class Contract {
         this._id = Date.now();
         this._parent = parent;
 
-        this.group = parent.group();
-
-        const container = this.group.foreignObject(width, height).move(x, y).addClass("contract-container");
+        const group = document.createElement("div");
+        group.classList.add("contract-container");
 
         // add decorator div
 
         const top_dec = document.createElement("img");
         top_dec.src = "/resources/floral-divider.svg";
         top_dec.classList.add("contract-decorator");
-        container.add(SVG(top_dec));
+        group.appendChild(top_dec);
 
         function add_text(text) {
             const content = document.createElement("p");
             content.textContent = text;
-            container.add(SVG(content));
+            group.appendChild(content);
         }
 
         add_text(
@@ -45,6 +44,8 @@ class Contract {
         const bot_dec = document.createElement("img");
         bot_dec.src = "/resources/floral-divider.svg";
         bot_dec.classList.add("contract-decorator");
-        container.add(SVG(bot_dec));
+        group.appendChild(bot_dec);
+
+        parent.appendChild(group);
     }
 }
