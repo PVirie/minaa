@@ -10,6 +10,7 @@ class Equation {
         content_2.classList.add("math");
         katex.render("f = k p^+ a_T a_M", content_2, {
             throwOnError: false,
+            display: false,
         });
         group.appendChild(content_2);
 
@@ -17,6 +18,7 @@ class Equation {
         content_0.classList.add("math");
         katex.render("\\frac{d L_M}{d t} = f(t) - \\lambda L_M ", content_0, {
             throwOnError: false,
+            display: false,
         });
         group.appendChild(content_0);
 
@@ -24,6 +26,7 @@ class Equation {
         content_1.classList.add("math");
         katex.render("L_M = \\int_0^t e^{-\\lambda(t - t')}  f(t') \\, d t' ", content_1, {
             throwOnError: false,
+            display: false,
         });
         group.appendChild(content_1);
 

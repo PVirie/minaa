@@ -6,6 +6,7 @@
 }
 
 .contract-container {
+    margin-bottom: 100vh;
     overflow: visible;
 }
 
@@ -16,9 +17,9 @@
 
 p {
     font-family: "Tangerine", cursive;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     line-height: 1.5em;
-    width: 50%;
+    width: 80%;
     margin: 1.5rem auto;
     text-align: center;
     background-image: linear-gradient(to right, #462523 -20%, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 120%);
@@ -29,7 +30,7 @@ p {
 
 p::first-letter {
     font-family: "Tangerine", cursive;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: 700;
     line-height: 1.5em;
     margin-right: 0rem;

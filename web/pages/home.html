@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html translate="no">
     <head>
         <meta charset="utf-8" />
         <meta name="description" content="Meena - Chatavut" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Meena - Chatavut</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
-        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous" />
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
         <!-- icon link -->
         <link rel="icon" href="/resources/Virie_symbol_2023.svg" />
         <link rel="stylesheet" href="/styles/theme.css" />
@@ -15,19 +16,47 @@
         <link rel="stylesheet" href="/styles/aurora.css" />
         <link rel="stylesheet" href="/styles/contract.css" />
         <link rel="stylesheet" href="/styles/equation.css" />
+        <link rel="stylesheet" href="/styles/starry.css" />
         <link rel="stylesheet" href="/styles/home.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     </head>
     <body>
         <div id="container" class="container">
+            <div class="title">
+                <h1>Meena &#9829; Tao</h1>
+            </div>
+            <div id="equation">
+                <div class="equation-container">
+                    <div class="math">$$f = k p^+ a_T a_M$$</div>
+                    <div class="math">$$ \frac{d L_M}{dt} = f(t) - \lambda L_M $$</div>
+                    <div class="math">$$ L_M = \int_0^t e^{-\lambda(t - t')} f(t') \, d t' $$</div>
+                </div>
+            </div>
+            <div id="contract">
+                <div class="contract-container">
+                    <img src="/resources/floral-divider.svg" alt="contract" class="contract-decorator" />
+                    <p>
+                        The establishment of a stable, nurturing, and fulfilling relationship requires the incorporation of certain fundamental principles and guidelines. This Relationship Charter is formulated to foster a loving, healthy, and resilient bond between Meena Kittikunsiri and Chatavut Viriyasuthee, grounded in the spirit of mutual trust, support, and respect. Recognizing the vitality of these core principles, this charter is intended to act as a foundational stone upon which our relationship is
+                        built and nurtured.
+                    </p>
+                    <p>We vow to communicate our feelings, intentions, and concerns openly and honestly.</p>
+                    <p>We pledge to be faithful to each other, both emotionally and physically.</p>
+                    <p>We shall exhibit consistency in our actions to ensure stability and predictability in our relationship.</p>
+                    <p>We commit to being each other's pillar, providing consolation during tough times and celebrating triumphs together.</p>
+                    <p>We shall cheer each other on, providing positive reinforcement and encouragement in all endeavors.</p>
+                    <p>We will advocate for each other's dreams and aspirations, providing a stable platform for individual and mutual growth.</p>
+                    <p>We will accept each other wholeheartedly, without pressuring one another to change intrinsic characteristics.</p>
+                    <p>We shall discuss and agree upon expectations, ensuring they are realistic and mutually acceptable.</p>
+                    <p>We will not take each other for granted and will continuously express our appreciation both verbally and through actions.</p>
+                    <img src="/resources/floral-divider.svg" alt="contract" class="contract-decorator" />
+                </div>
+            </div>
             <div id="aurora"></div>
-            <div id="contract"></div>
-            <div id="equation"></div>
         </div>
         <script src="/scripts/util.js"></script>
         <script src="/scripts/aurora.js"></script>
         <script src="/scripts/contract.js"></script>
-        <script src="/scripts/equation.js"></script>
+        <script src="/scripts/starry.js"></script>
         <script src="/scripts/main.js"></script>
     </body>
 </html>
