@@ -15,7 +15,7 @@
     height: 100px;
 }
 
-p {
+.contract-container p {
     font-family: "Tangerine", cursive;
     font-size: 2.5rem;
     line-height: 1.5em;
@@ -28,7 +28,7 @@ p {
     -webkit-background-clip: text;
 }
 
-p::first-letter {
+.contract-container p::first-letter {
     font-family: "Tangerine", cursive;
     font-size: 3.5rem;
     font-weight: 700;

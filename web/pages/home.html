@@ -23,14 +23,28 @@
     <body>
         <div id="container" class="container">
             <div class="title">
-                <h1>Meena &#9829; Tao</h1>
+                <h1 class="gradient-text"><span class="meena">Meena</span> <span class="love">&#9829;</span> <span class="tao">Tao</span></h1>
+            </div>
+            <div class="sub-title">
+                <h2 class="gradient-text">Affection equation</h2>
             </div>
             <div id="equation">
                 <div class="equation-container">
-                    <div class="math">$$f = k p^+ a_T a_M$$</div>
-                    <div class="math">$$ \frac{d L_M}{dt} = f(t) - \lambda L_M $$</div>
+                    <p class="gradient-text">I believe that my affection toward Meena can be explained by this differential equation.</p>
+                    <div class="math">$$ \frac{d L_M}{d t} = f(t) - \lambda L_M $$</div>
+                    <p class="gradient-text">Where $f$ is a function of</p>
+                    <ul>
+                        <li class="gradient-text">$k$ is a constant</li>
+                        <li class="gradient-text">$p^+$ the positive magnitude of the interactive tone</li>
+                        <li class="gradient-text">$a$ is each other attention</li>
+                    </ul>
+                    <div class="math">$$ f = k p^+ a_T a_M $$</div>
+                    <p class="gradient-text">The condition above admits the following solution at any given time.</p>
                     <div class="math">$$ L_M = \int_0^t e^{-\lambda(t - t')} f(t') \, d t' $$</div>
                 </div>
+            </div>
+            <div class="sub-title">
+                <h2 class="gradient-text">The relationship charter</h2>
             </div>
             <div id="contract">
                 <div class="contract-container">
@@ -51,7 +65,13 @@
                     <img src="/resources/floral-divider.svg" alt="contract" class="contract-decorator" />
                 </div>
             </div>
+            <div class="sub-title">
+                <h2 class="gradient-text">Approaching stratosphere</h2>
+            </div>
             <div id="aurora"></div>
+            <div class="sub-title">
+                <h2 class="gradient-text">Welcome to our planet</h2>
+            </div>
         </div>
         <script src="/scripts/util.js"></script>
         <script src="/scripts/aurora.js"></script>

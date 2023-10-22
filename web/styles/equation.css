@@ -1,10 +1,27 @@
 .equation-container {
     height: 100vh;
     overflow: visible;
+
+    font-size: 2rem;
+    line-height: 3rem;
+    font-family: "Courgette", cursive;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
-.math {
-    font-size: 2rem;
+.equation-container p {
     text-align: center;
-    color: white;
+}
+
+.equation-container li {
+    text-align: left;
+}
+
+.equation-container .math {
+    padding: 0 1rem;
+    border: solid 1px #fff;
+    border-radius: 1rem;
 }
