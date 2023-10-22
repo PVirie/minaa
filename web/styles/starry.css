@@ -5,6 +5,8 @@
     height: 200vh;
     position: fixed;
     overflow: visible;
+
+    pointer-events: none;
 }
 
 .star {

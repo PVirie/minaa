@@ -28,7 +28,7 @@
             const aurora = new Aurora(dom);
         }
 
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 6; i++) {
             const starry = create_star_plane(i);
             star_layers.push(starry);
             container.appendChild(starry);

@@ -3,7 +3,7 @@ const create_star_plane = function (star_size) {
     plane.classList.add("star-container");
 
     star_size = star_size * 0.5 + 1;
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 40; i++) {
         const star = document.createElement("div");
         star.classList.add("star");
 
