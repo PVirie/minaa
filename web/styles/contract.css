@@ -6,7 +6,7 @@
 }
 
 .contract-container {
-    margin-bottom: 100vh;
+    min-height: 100vh;
     overflow: visible;
 }
 

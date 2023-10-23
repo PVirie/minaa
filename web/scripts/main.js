@@ -25,15 +25,17 @@
         }
     };
 
-    // add on scroll handler
-    window.addEventListener("scroll", function () {
+    const on_scroll = function (event) {
         // reverse my to height - scroll position
         let my = document.documentElement.scrollTop;
         // scale to the range 0.0 to 1.0
         my = my / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
         my = util.clip(my, 0, 1.0);
         scroll_update(my);
-    });
+    };
+
+    // add on scroll handler
+    window.addEventListener("scroll", on_scroll);
 
     window.addEventListener("load", async function () {
         for (const dom of document.querySelectorAll("#aurora")) {
@@ -92,5 +94,8 @@
         for (const dom of document.querySelectorAll(".katex span")) {
             dom.classList.add("tao");
         }
+
+        // reset scroll to top
+        on_scroll();
     });
 })();
