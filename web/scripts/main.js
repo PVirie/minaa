@@ -3,6 +3,7 @@
 
     const star_layers = [];
     const mountain_layers = [];
+    const field_layers = [];
 
     const scroll_update = function (my) {
         // set background color, at zenith my = 0.0 #000005, at ground my = 1.0 #102a85, else clip
@@ -15,7 +16,12 @@
 
         // parallax mountain layers
         for (let i = 0; i < mountain_layers.length; i++) {
-            mountain_layers[i].style.setProperty("transform", `translateY(${(1 - my) * (i * 0.5 + 1) * 5000}px)`);
+            mountain_layers[i].style.setProperty("transform", `translateY(${(1 - my) * (i * 0.5 + 1) * 4000}px)`);
+        }
+
+        // parallax field layers
+        for (let i = 0; i < field_layers.length; i++) {
+            field_layers[i].style.setProperty("transform", `translateY(${(1 - my) * (i * 0.5 + 1) * 5000}px)`);
         }
     };
 
@@ -55,6 +61,22 @@
             mountain_range.style.setProperty("height", `${height}px`);
 
             fill_mountain_range(mountain_range, peak[i]);
+        }
+
+        const count_field = 3;
+        for (let i = 0; i < count_field; i++) {
+            const field = document.createElement("div");
+            field.classList.add("rose-container");
+            field_layers.push(field);
+            container.appendChild(field);
+
+            // get current style height
+            const style = window.getComputedStyle(field);
+            let height = parseInt(style.getPropertyValue("height"));
+            let bottom = height * (count_field - i - 1) * 0.5;
+            field.style.setProperty("bottom", `${bottom}px`);
+
+            fill_rosen_field(field, i);
         }
 
         renderMathInElement(document.body, {
