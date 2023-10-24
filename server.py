@@ -13,7 +13,7 @@ app = FastAPI()
 async def login(password: str = Body(...)):
     normalized = password.lower().replace(" ", "")
     if normalized == "lavieenrose":
-        return RedirectResponse("/pages/home.html")
+        return RedirectResponse("/pages/lavieenrose.html")
     else:
         raise HTTPException(status_code=401, detail="Incorrect password")
 
