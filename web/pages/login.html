@@ -18,10 +18,32 @@
             <h2>Please enter credential</h2>
             <div>
                 <input type="password" id="password" placeholder="Password" />
+                <input type="button" id="submit" value="Go" />
             </div>
         </div>
         <script>
-            window.addEventListener("load", async function (e) {});
+            window.addEventListener("load", async function (e) {
+                const password = document.getElementById("password");
+                const submit = document.getElementById("submit");
+                submit.addEventListener("click", async function (e) {
+                    try {
+                        const r = await fetch("/login", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify(password.value),
+                        });
+
+                        // handle redirect
+                        if (r.redirected) {
+                            window.location.href = r.url;
+                        }
+                    } catch (e) {
+                        console.log(e);
+                    }
+                });
+            });
         </script>
     </body>
 </html>
