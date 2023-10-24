@@ -127,5 +127,10 @@ util = (function () {
         return root;
     };
 
+    util_obj.rand_int = function (min, max) {
+        // inclusive
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+
     return util_obj;
 })();

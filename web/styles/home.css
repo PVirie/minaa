@@ -12,13 +12,13 @@ body {
 
 .container {
     width: 100vw;
-    height: 1200vh;
     margin: 0px;
     padding: 0px;
+    padding-bottom: 40vh;
     overflow-x: hidden;
     overflow-y: scroll;
     background-color: #000005;
-    transition: all 0.5s ease-in-out;
+    /* transition: all 0.5s ease-in-out; */
 
     display: flex;
     flex-flow: column nowrap;
@@ -46,6 +46,8 @@ body {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+
+    z-index: 999;
 }
 
 h1,
@@ -53,8 +55,23 @@ h2 {
     font-size: 5rem;
     line-height: 5rem;
     font-family: "Courgette", cursive;
+    text-align: center;
 }
 
 h2 {
     font-size: 3rem;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+
+    h1,
+    h2 {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
 }
