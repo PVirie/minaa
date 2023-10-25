@@ -9,7 +9,7 @@
 
 body {
     text-align: left;
-    font-family: "DM Mono", monospace;
+    font-family: "Courgette", cursive;
     line-height: 1.5em;
     font-size: 1.1rem;
 
@@ -37,8 +37,10 @@ body {
 }
 
 .primary {
-    color: #8474a1;
-    background-color: #f1eff2;
+    color: #00ffaa;
+    background-color: #055b5c77;
+    backdrop-filter: blur(5px);
+    border: solid 2px #00ffaa;
 }
 
 .secondary {
@@ -71,13 +73,11 @@ body {
 }
 
 h1 {
-    font-family: "DM Mono", monospace;
     font-weight: 500;
     line-height: 1.5em;
 }
 
 h2 {
-    font-family: "DM Mono", monospace;
     font-weight: 500;
 }
 
@@ -107,14 +107,14 @@ a {
 input,
 select,
 .combo {
+    color: inherit;
     background-color: inherit;
     height: 2rem;
     border: none;
-    border-bottom: solid 1px #333f;
+    border-bottom: solid 1px #00ffaa;
     border-radius: 999px;
     font-weight: 600;
     font-size: 1rem;
-    font-family: "DM Mono", monospace;
 }
 
 input[type="text"],
@@ -172,6 +172,12 @@ input[type="button"]:active {
 
 .bg-0 {
     background-image: url("/resources/aurora_0.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-1 {
+    background-image: url("/resources/spaceship_window.png");
     background-size: cover;
     background-position: center;
 }
