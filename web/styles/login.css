@@ -13,11 +13,12 @@ body {
 .container {
     height: 100%;
     width: 100%;
+    padding: 1rem 1rem;
 }
 
 .container.center {
     display: flex;
-    flex-direction: column;
+    flex-flow: row unwrap;
     justify-content: center;
     align-items: center;
 }
