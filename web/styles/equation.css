@@ -1,6 +1,6 @@
 .equation-container {
     min-height: 100vh;
-    overflow: visible;
+    overflow: hidden;
 
     font-size: 2rem;
     line-height: 3rem;
@@ -21,6 +21,8 @@
 }
 
 .equation-container .math {
+    max-width: 100%;
+    overflow: auto hidden;
     padding: 0 1rem;
     border: solid 1px #fff;
     border-radius: 1rem;
