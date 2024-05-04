@@ -9,7 +9,7 @@ class Contract {
         // add decorator div
 
         const top_dec = document.createElement("img");
-        top_dec.src = "resources/floral-divider.svg";
+        top_dec.src = "../resources/floral-divider.svg";
         top_dec.classList.add("contract-decorator");
         group.appendChild(top_dec);
 
