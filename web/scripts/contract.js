@@ -42,7 +42,7 @@ class Contract {
         add_text("We will not take each other for granted and will continuously express our appreciation both verbally and through actions.");
 
         const bot_dec = document.createElement("img");
-        bot_dec.src = "resources/floral-divider.svg";
+        bot_dec.src = "../resources/floral-divider.svg";
         bot_dec.classList.add("contract-decorator");
         group.appendChild(bot_dec);
 
