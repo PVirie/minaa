@@ -20,7 +20,7 @@ class Contract {
         }
 
         add_text(
-            "The establishment of a stable, nurturing, and fulfilling relationship requires the incorporation of certain fundamental principles and guidelines. This Relationship Charter is formulated to foster a loving, healthy, and resilient bond between Meena Kittikunsiri and Chatavut Viriyasuthee, grounded in the spirit of mutual trust, support, and respect. Recognizing the vitality of these core principles, this charter is intended to act as a foundational stone upon which our relationship is built and nurtured."
+            "The establishment of a stable, nurturing, and fulfilling relationship requires the incorporation of certain fundamental principles and guidelines. This Relationship Charter is formulated to foster a loving, healthy, and resilient bond between Minaa Kittikunsiri and Chatavut Viriyasuthee, grounded in the spirit of mutual trust, support, and respect. Recognizing the vitality of these core principles, this charter is intended to act as a foundational stone upon which our relationship is built and nurtured."
         );
 
         add_text("We vow to communicate our feelings, intentions, and concerns openly and honestly.");
