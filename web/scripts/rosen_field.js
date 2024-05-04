@@ -7,7 +7,7 @@ const fill_rosen_field = function (plane, layer) {
     const total = width / 100 / (layer + 1);
     for (let i = 0; i < total; i++) {
         const rose = document.createElement("img");
-        rose.src = `/resources/${templates[util.rand_int(0, templates.length - 1)]}.svg`;
+        rose.src = `resources/${templates[util.rand_int(0, templates.length - 1)]}.svg`;
 
         rose.style.setProperty("transform", `translateY(${(Math.random() - 0.5) * 20 + 50}%)`);
         rose.style.setProperty("left", i * (100 / total) + "%");

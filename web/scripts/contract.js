@@ -9,7 +9,7 @@ class Contract {
         // add decorator div
 
         const top_dec = document.createElement("img");
-        top_dec.src = "../resources/floral-divider.svg";
+        top_dec.src = "resources/floral-divider.svg";
         top_dec.classList.add("contract-decorator");
         group.appendChild(top_dec);
 
@@ -42,7 +42,7 @@ class Contract {
         add_text("We will not take each other for granted and will continuously express our appreciation both verbally and through actions.");
 
         const bot_dec = document.createElement("img");
-        bot_dec.src = "../resources/floral-divider.svg";
+        bot_dec.src = "resources/floral-divider.svg";
         bot_dec.classList.add("contract-decorator");
         group.appendChild(bot_dec);
 
